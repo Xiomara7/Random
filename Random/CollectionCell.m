@@ -33,6 +33,8 @@
         
         [_likesButton setImage:[UIImage imageNamed:@"heart_icon"]
                       forState:UIControlStateNormal];
+        [_likesButton setImage:[UIImage imageNamed:@"heart_icon_filled"]
+                      forState:UIControlStateSelected];
         [self addSubview:_likesButton];
         
         _separator = [[UIView alloc] initWithFrame:CGRectZero];

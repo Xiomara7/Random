@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface LikesController : UIViewController
+@interface LikesController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableArray<UIImage *> *randomLikedImages;
+@property (nonatomic, strong) UIActivityViewController *shareView;
 
 @end

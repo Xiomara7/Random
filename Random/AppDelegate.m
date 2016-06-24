@@ -25,25 +25,25 @@
     self.window.backgroundColor = [UIColor whiteColor];
     
     HomeController *homeController = [[HomeController alloc] init];
+    homeController.tabBarItem.title = @"Home";
     homeController.tabBarItem.image = [UIImage imageNamed:@"home_icon"];
     homeController.tabBarItem.selectedImage = [UIImage imageNamed:@"home_icon_filled"];
-    homeController.tabBarItem.title = @"Home";
+    
+    UINavigationController *homeNavController = [[UINavigationController alloc] initWithRootViewController:homeController];
     
     GalleryController *galleryController = [[GalleryController alloc] init];
+    galleryController.tabBarItem.title = @"Gallery";
     galleryController.tabBarItem.image = [UIImage imageNamed:@"gallery_icon"];
     galleryController.tabBarItem.selectedImage = [UIImage imageNamed:@"gallery_icon_filled"];
-    galleryController.tabBarItem.title = @"Gallery";
     
     LikesController *likesController = [[LikesController alloc] init];
+    likesController.tabBarItem.title = @"Likes";
     likesController.tabBarItem.image = [UIImage imageNamed:@"heart_icon"];
     likesController.tabBarItem.selectedImage = [UIImage imageNamed:@"heart_icon_filled"];
-    likesController.tabBarItem.title = @"Likes";
     
     UITabBarController *tabController = [[UITabBarController alloc] init];
     tabController.tabBar.tintColor = [UIColor orangeColor];
-    tabController.viewControllers = @[homeController,
-                                      galleryController,
-                                      likesController];
+    tabController.viewControllers = @[homeNavController, galleryController, likesController];
     
     UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:tabController];
     
