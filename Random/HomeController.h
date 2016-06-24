@@ -12,5 +12,6 @@
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray<UIImage *> *randomImages;
-    
+@property (nonatomic, strong) UIActivityViewController *shareView; 
+
 @end

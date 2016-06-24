@@ -58,6 +58,21 @@
 
 }
 
+#pragma mark - Selector Methods
+
+- (void)shareAction:(UIButton *)sender {
+    self.shareView = [[UIActivityViewController alloc]
+                        initWithActivityItems: @[[self.randomImages objectAtIndex:sender.tag]]
+                        applicationActivities: nil
+                      ];
+    
+    [self presentViewController:self.shareView animated:true completion:nil];
+}
+
+- (void)likeAction:(id)sender {
+    
+}
+
 #pragma mark - UICollection Delegate & DataSource Methods
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -70,6 +85,14 @@
     if (cell == nil) {
         cell = [[CollectionCell alloc] initWithFrame:CGRectZero];
     }
+    
+    [self.view bringSubviewToFront:cell.shareButton];
+    [self.view bringSubviewToFront:cell.likesButton];
+    
+    [cell.shareButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
+     cell.shareButton.tag = indexPath.row;
+    
+    [cell.likesButton addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
     
     if ([self.randomImages count] > 0) {
         cell.randomImageView.image = [self.randomImages objectAtIndex:indexPath.row];
