@@ -8,6 +8,10 @@
 
 #import "AppDelegate.h"
 
+#import "HomeController.h"
+#import "GalleryController.h"
+#import "LikesController.h"
+
 @interface AppDelegate ()
 
 @end
@@ -16,7 +20,32 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    HomeController *homeController = [[HomeController alloc] init];
+    homeController.tabBarItem.image = [UIImage imageNamed:@"home_icon"];
+    homeController.tabBarItem.title = @"Home";
+    
+    GalleryController *galleryController = [[GalleryController alloc] init];
+    galleryController.tabBarItem.image = [UIImage imageNamed:@"gallery_icon"];
+    galleryController.tabBarItem.title = @"Gallery";
+    
+    LikesController *likesController = [[LikesController alloc] init];
+    likesController.tabBarItem.image = [UIImage imageNamed:@"heart_icon"];
+    likesController.tabBarItem.title = @"Likes";
+    
+    UITabBarController *tabController = [[UITabBarController alloc] init];
+    tabController.viewControllers = @[homeController,
+                                      galleryController,
+                                      likesController];
+    
+    UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:tabController];
+    
+    [self.window setRootViewController:navController];
+    [self.window makeKeyAndVisible];
+    
     return YES;
 }
 
