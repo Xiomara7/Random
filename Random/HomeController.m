@@ -8,6 +8,7 @@
 
 #import "HomeController.h"
 #import "CollectionCell.h"
+#import "DataManager.h"
 #import <PureLayout/PureLayout.h>
 
 @interface HomeController ()
@@ -25,8 +26,6 @@
     [super viewWillAppear:animated];
     
     self.randomImages = [[NSMutableArray alloc] init];
-    self.likedImages = [[NSMutableArray alloc] init];
-    
     [self getImages];
 }
 
@@ -86,7 +85,9 @@
         sender.selected = YES;
     }
     
-    [self.likedImages addObject: [self.randomImages objectAtIndex:sender.tag]];
+    [[[DataManager sharedManager] likedImages] addObject:[self.randomImages objectAtIndex:sender.tag]];
+    //[self.likedImages addObject: [self.randomImages objectAtIndex:sender.tag]];
+
 }
 
 #pragma mark - Search Bar Delegate Methods

@@ -8,6 +8,7 @@
 
 #import "LikesController.h"
 #import "CollectionCell.h"
+#import "DataManager.h"
 #import <PureLayout/PureLayout.h>
 
 @implementation LikesController
@@ -16,6 +17,13 @@
     
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     return self;
+}
+
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    
+    _randomLikedImages = [[DataManager sharedManager] likedImages];
+    [self.collectionView reloadData];
 }
 
 - (void)viewDidLoad {
@@ -67,10 +75,12 @@
     if (cell == nil) {
         cell = [[CollectionCell alloc] initWithFrame:CGRectZero];
     }
-    
+
     if ([self.randomLikedImages count] > 0) {
         cell.randomImageView.image = [self.randomLikedImages objectAtIndex:indexPath.row];
     }
+    
+    [cell.likesButton setSelected:YES];
     
     return cell;
 }
