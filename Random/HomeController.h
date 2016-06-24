@@ -9,14 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface HomeController : UIViewController< UICollectionViewDataSource,
-                                              UICollectionViewDelegateFlowLayout,
-                                              UISearchBarDelegate>
+                                              UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) NSMutableArray<UIImage *> *randomImages;
 @property (nonatomic, strong) NSMutableArray<UIImage *> *likedImages;
-
-@property (nonatomic, strong) UIActivityViewController *shareView;
-@property (nonatomic, strong) UISearchBar *searchBar; 
+@property (nonatomic, strong) UIActivityViewController *shareView; 
 
 @end

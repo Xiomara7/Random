@@ -11,10 +11,6 @@
 #import "DataManager.h"
 #import <PureLayout/PureLayout.h>
 
-@interface HomeController ()
-
-@end
-
 @implementation HomeController
 
 - (instancetype)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
@@ -49,17 +45,9 @@
     [self.collectionView registerClass:[CollectionCell class] forCellWithReuseIdentifier:@"cell"];
     [self.view addSubview:self.collectionView];
     
-    self.searchBar = [[UISearchBar alloc] initWithFrame:CGRectMake(0.0, 60.0, 320, 44.0)];
-    self.searchBar.placeholder = @"Search";
-    self.searchBar.delegate = self;
-    
-    [self.view addSubview:self.searchBar];
-    
     // Auto Layout
-    [self.collectionView autoPinEdge:ALEdgeTop toEdge:ALEdgeBottom ofView:self.searchBar];
+    [self.collectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
     [self.collectionView autoPinToBottomLayoutGuideOfViewController:self withInset:0.0];
-    [self.collectionView autoPinEdgeToSuperviewEdge:ALEdgeLeft];
-    [self.collectionView autoPinEdgeToSuperviewEdge:ALEdgeRight];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -81,20 +69,11 @@
 - (void)likeAction:(UIButton *)sender {
     if (sender.selected) {
         sender.selected = NO;
+        [[[DataManager sharedManager] likedImages] removeObject:[self.randomImages objectAtIndex:sender.tag]];
     } else {
         sender.selected = YES;
+        [[[DataManager sharedManager] likedImages] addObject:[self.randomImages objectAtIndex:sender.tag]];
     }
-    
-    [[[DataManager sharedManager] likedImages] addObject:[self.randomImages objectAtIndex:sender.tag]];
-    //[self.likedImages addObject: [self.randomImages objectAtIndex:sender.tag]];
-
-}
-
-#pragma mark - Search Bar Delegate Methods
-
-- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar {
-    [self.searchBar resignFirstResponder];
-    [self searchImagesWithTag:searchBar.text];
 }
 
 #pragma mark - UICollection Delegate & DataSource Methods
@@ -115,6 +94,7 @@
     
     [cell.shareButton addTarget:self action:@selector(shareAction:) forControlEvents:UIControlEventTouchUpInside];
      cell.shareButton.tag = indexPath.row;
+    
     
     [cell.likesButton addTarget:self action:@selector(likeAction:) forControlEvents:UIControlEventTouchUpInside];
      cell.likesButton.tag = indexPath.row;
@@ -140,22 +120,6 @@
             NSURL *imageURL = [NSURL URLWithString:@"https://source.unsplash.com/random"];
             NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
         
-            dispatch_async(dispatch_get_main_queue(), ^{
-                [self.randomImages addObject:[UIImage imageWithData:imageData]];
-                [self.collectionView reloadData];
-            });
-        });
-    }
-}
-
-- (void)searchImagesWithTag:(NSString *)tag {
-    [self.randomImages removeAllObjects];
-    
-    for (int i = 1; i <= 10; i++) {
-        dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-            NSURL *imageURL = [NSURL URLWithString:[NSString stringWithFormat:@"https://source.unsplash.com/featured/%@", tag]];
-            NSData *imageData = [NSData dataWithContentsOfURL:imageURL];
-            
             dispatch_async(dispatch_get_main_queue(), ^{
                 [self.randomImages addObject:[UIImage imageWithData:imageData]];
                 [self.collectionView reloadData];

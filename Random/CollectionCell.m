@@ -17,39 +17,41 @@
         self.layer.borderWidth = 1.0;
         self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
         
-        _randomImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _randomImageView.translatesAutoresizingMaskIntoConstraints = NO;
-        [self addSubview:_randomImageView];
+        self.randomImageView = [[UIImageView alloc] initWithFrame:CGRectZero];
+        self.randomImageView.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:self.randomImageView];
         
-        _shareButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        _shareButton.translatesAutoresizingMaskIntoConstraints = NO;
+        self.shareButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        self.shareButton.translatesAutoresizingMaskIntoConstraints = NO;
         
-        [_shareButton setImage:[UIImage imageNamed:@"share_icon"]
-                      forState:UIControlStateNormal];
-        [self addSubview:_shareButton];
+        [self.shareButton setImage:[UIImage imageNamed:@"share_icon"]
+                          forState:UIControlStateNormal];
         
-        _likesButton = [[UIButton alloc] initWithFrame:CGRectZero];
-        _likesButton.translatesAutoresizingMaskIntoConstraints = NO;
+        [self addSubview:self.shareButton];
         
-        [_likesButton setImage:[UIImage imageNamed:@"heart_icon"]
-                      forState:UIControlStateNormal];
-        [_likesButton setImage:[UIImage imageNamed:@"heart_icon_filled"]
-                      forState:UIControlStateSelected];
-        [self addSubview:_likesButton];
+        self.likesButton = [[UIButton alloc] initWithFrame:CGRectZero];
+        self.likesButton.translatesAutoresizingMaskIntoConstraints = NO;
         
-        _categoryTitle = [[UILabel alloc] initWithFrame:CGRectZero];
-        [_categoryTitle setHidden:YES]; 
-        [_categoryTitle setTextColor:[UIColor lightGrayColor]];
-        [_categoryTitle setFont:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:20.0]];
+        [self.likesButton setImage:[UIImage imageNamed:@"heart_icon"]
+                          forState:UIControlStateNormal];
         
-        [self addSubview:_categoryTitle];
+        [self.likesButton setImage:[UIImage imageNamed:@"heart_icon_filled"]
+                          forState:UIControlStateSelected];
+        [self addSubview:self.likesButton];
         
-        _separator = [[UIView alloc] initWithFrame:CGRectZero];
-        _separator.translatesAutoresizingMaskIntoConstraints = NO;
-        _separator.backgroundColor = [UIColor lightGrayColor];
+        self.categoryTitle = [[UILabel alloc] initWithFrame:CGRectZero];
+        [self.categoryTitle setHidden:YES];
+        [self.categoryTitle setTextColor:[UIColor lightGrayColor]];
+        [self.categoryTitle setFont:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:20.0]];
         
-        [_separator autoSetDimension:ALDimensionWidth toSize:1.0];
-        [_separator autoSetDimension:ALDimensionHeight toSize:34.0];
+        [self addSubview:self.categoryTitle];
+        
+        self.separator = [[UIView alloc] initWithFrame:CGRectZero];
+        self.separator.translatesAutoresizingMaskIntoConstraints = NO;
+        self.separator.backgroundColor = [UIColor lightGrayColor];
+        
+        [self.separator autoSetDimension:ALDimensionWidth toSize:1.0];
+        [self.separator autoSetDimension:ALDimensionHeight toSize:34.0];
         
         [self addSubview:_separator];
         [self setNeedsUpdateConstraints];
