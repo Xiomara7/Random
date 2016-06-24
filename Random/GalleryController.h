@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GalleryController : UIViewController
+@interface GalleryController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
+
+@property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) NSArray *collections; 
 
 @end

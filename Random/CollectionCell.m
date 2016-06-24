@@ -37,6 +37,13 @@
                       forState:UIControlStateSelected];
         [self addSubview:_likesButton];
         
+        _categoryTitle = [[UILabel alloc] initWithFrame:CGRectZero];
+        [_categoryTitle setHidden:YES]; 
+        [_categoryTitle setTextColor:[UIColor lightGrayColor]];
+        [_categoryTitle setFont:[UIFont fontWithName:@"AppleSDGothicNeo-Light" size:20.0]];
+        
+        [self addSubview:_categoryTitle];
+        
         _separator = [[UIView alloc] initWithFrame:CGRectZero];
         _separator.translatesAutoresizingMaskIntoConstraints = NO;
         _separator.backgroundColor = [UIColor lightGrayColor];
@@ -64,6 +71,7 @@
     [self.shareButton autoPinEdge:ALEdgeLeft toEdge:ALEdgeRight ofView:_separator withOffset:34.0];
     [self.shareButton autoAlignAxis:ALAxisHorizontal toSameAxisOfView:_separator];
     
+    [self.categoryTitle autoCenterInSuperview];
     
     [super updateConstraints];
 }

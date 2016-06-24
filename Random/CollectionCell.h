@@ -15,4 +15,6 @@
 @property (nonatomic, strong) UIButton *shareButton;
 @property (nonatomic, strong) UIButton *likesButton;
 
+@property (nonatomic, strong) UILabel *categoryTitle; 
+
 @end
