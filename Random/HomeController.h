@@ -11,5 +11,6 @@
 @interface HomeController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) NSMutableArray<UIImage *> *randomImages;
     
 @end
