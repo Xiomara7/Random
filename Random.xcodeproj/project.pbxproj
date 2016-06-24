@@ -14,6 +14,7 @@
 		0A6995831D1CD1510070162F /* HomeController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6995821D1CD1510070162F /* HomeController.m */; };
 		0A6995861D1CD49A0070162F /* GalleryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6995851D1CD49A0070162F /* GalleryController.m */; };
 		0A6995891D1CD4A50070162F /* LikesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6995881D1CD4A50070162F /* LikesController.m */; };
+		0A69958D1D1CE11E0070162F /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A69958C1D1CE11E0070162F /* CollectionCell.m */; };
 		583BFC5C17739CA1BAF5E2D3 /* libPods-Random.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0A1E26712BFBADB49D83DD /* libPods-Random.a */; };
 /* End PBXBuildFile section */
 
@@ -31,6 +32,8 @@
 		0A6995851D1CD49A0070162F /* GalleryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GalleryController.m; sourceTree = "<group>"; };
 		0A6995871D1CD4A50070162F /* LikesController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LikesController.h; sourceTree = "<group>"; };
 		0A6995881D1CD4A50070162F /* LikesController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LikesController.m; sourceTree = "<group>"; };
+		0A69958B1D1CE11E0070162F /* CollectionCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionCell.h; sourceTree = "<group>"; };
+		0A69958C1D1CE11E0070162F /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
 		7F0A1E26712BFBADB49D83DD /* libPods-Random.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Random.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5308E61B5F776CDA09A5241 /* Pods-Random.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Random.release.xcconfig"; path = "Pods/Target Support Files/Pods-Random/Pods-Random.release.xcconfig"; sourceTree = "<group>"; };
 		ADBE4358B304408D7BA27E31 /* Pods-Random.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Random.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Random/Pods-Random.debug.xcconfig"; sourceTree = "<group>"; };
@@ -69,9 +72,9 @@
 		0A6995681D1CC5190070162F /* Random */ = {
 			isa = PBXGroup;
 			children = (
+				0A69958E1D1CEA390070162F /* Singletons */,
+				0A69958A1D1CD9C40070162F /* Views */,
 				0A6995801D1CD13E0070162F /* Controllers */,
-				0A69956C1D1CC5190070162F /* AppDelegate.h */,
-				0A69956D1D1CC5190070162F /* AppDelegate.m */,
 				0A6995751D1CC51A0070162F /* Assets.xcassets */,
 				0A6995771D1CC51A0070162F /* LaunchScreen.storyboard */,
 				0A69957A1D1CC51A0070162F /* Info.plist */,
@@ -99,6 +102,24 @@
 				0A6995881D1CD4A50070162F /* LikesController.m */,
 			);
 			name = Controllers;
+			sourceTree = "<group>";
+		};
+		0A69958A1D1CD9C40070162F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				0A69958B1D1CE11E0070162F /* CollectionCell.h */,
+				0A69958C1D1CE11E0070162F /* CollectionCell.m */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		0A69958E1D1CEA390070162F /* Singletons */ = {
+			isa = PBXGroup;
+			children = (
+				0A69956C1D1CC5190070162F /* AppDelegate.h */,
+				0A69956D1D1CC5190070162F /* AppDelegate.m */,
+			);
+			name = Singletons;
 			sourceTree = "<group>";
 		};
 		5BA8C6DD4B1606A17DEC2BA2 /* Frameworks */ = {
@@ -241,6 +262,7 @@
 				0A69956E1D1CC5190070162F /* AppDelegate.m in Sources */,
 				0A6995891D1CD4A50070162F /* LikesController.m in Sources */,
 				0A6995831D1CD1510070162F /* HomeController.m in Sources */,
+				0A69958D1D1CE11E0070162F /* CollectionCell.m in Sources */,
 				0A6995861D1CD49A0070162F /* GalleryController.m in Sources */,
 				0A69956B1D1CC5190070162F /* main.m in Sources */,
 			);
