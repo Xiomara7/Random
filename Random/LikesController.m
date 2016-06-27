@@ -80,6 +80,12 @@
         cell.randomImageView.image = [self.randomLikedImages objectAtIndex:indexPath.row];
     }
     
+    cell.shareButton.tag = indexPath.row;
+    [cell.shareButton addTarget: self
+                         action: @selector(shareAction:)
+               forControlEvents: UIControlEventAllTouchEvents];
+    
+    // Mark img as liked
     [cell.likesButton setSelected:YES];
     
     return cell;

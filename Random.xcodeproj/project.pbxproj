@@ -16,6 +16,7 @@
 		0A6995891D1CD4A50070162F /* LikesController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6995881D1CD4A50070162F /* LikesController.m */; };
 		0A69958D1D1CE11E0070162F /* CollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A69958C1D1CE11E0070162F /* CollectionCell.m */; };
 		0A6995911D1D5A9D0070162F /* DataManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6995901D1D5A9D0070162F /* DataManager.m */; };
+		0A6995941D1D87700070162F /* CollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A6995931D1D87700070162F /* CollectionController.m */; };
 		583BFC5C17739CA1BAF5E2D3 /* libPods-Random.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F0A1E26712BFBADB49D83DD /* libPods-Random.a */; };
 /* End PBXBuildFile section */
 
@@ -37,6 +38,8 @@
 		0A69958C1D1CE11E0070162F /* CollectionCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionCell.m; sourceTree = "<group>"; };
 		0A69958F1D1D5A9D0070162F /* DataManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataManager.h; sourceTree = "<group>"; };
 		0A6995901D1D5A9D0070162F /* DataManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataManager.m; sourceTree = "<group>"; };
+		0A6995921D1D87700070162F /* CollectionController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CollectionController.h; sourceTree = "<group>"; };
+		0A6995931D1D87700070162F /* CollectionController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CollectionController.m; sourceTree = "<group>"; };
 		7F0A1E26712BFBADB49D83DD /* libPods-Random.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Random.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A5308E61B5F776CDA09A5241 /* Pods-Random.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Random.release.xcconfig"; path = "Pods/Target Support Files/Pods-Random/Pods-Random.release.xcconfig"; sourceTree = "<group>"; };
 		ADBE4358B304408D7BA27E31 /* Pods-Random.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Random.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Random/Pods-Random.debug.xcconfig"; sourceTree = "<group>"; };
@@ -103,6 +106,8 @@
 				0A6995851D1CD49A0070162F /* GalleryController.m */,
 				0A6995871D1CD4A50070162F /* LikesController.h */,
 				0A6995881D1CD4A50070162F /* LikesController.m */,
+				0A6995921D1D87700070162F /* CollectionController.h */,
+				0A6995931D1D87700070162F /* CollectionController.m */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -265,6 +270,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0A69956E1D1CC5190070162F /* AppDelegate.m in Sources */,
+				0A6995941D1D87700070162F /* CollectionController.m in Sources */,
 				0A6995891D1CD4A50070162F /* LikesController.m in Sources */,
 				0A6995911D1D5A9D0070162F /* DataManager.m in Sources */,
 				0A6995831D1CD1510070162F /* HomeController.m in Sources */,

@@ -8,6 +8,7 @@
 
 #import "GalleryController.h"
 #import "CollectionCell.h"
+#import "CollectionController.h"
 #import "DataManager.h"
 #import <PureLayout/PureLayout.h>
 
@@ -44,13 +45,13 @@
     [self.view addSubview:self.collectionView];
     
     // Default Values
-    _collections = [[NSArray alloc] initWithObjects:@"buildings",
-                                                    @"food",
-                                                    @"nature",
-                                                    @"people",
-                                                    @"technology",
-                                                    @"objects",
-                                                    nil];
+    self.collections = [[NSArray alloc] initWithObjects:@"buildings",
+                                                        @"food",
+                                                        @"nature",
+                                                        @"people",
+                                                        @"technology",
+                                                        @"objects",
+                                                        nil];
     
     // Auto Layout
     [self.collectionView autoPinEdgesToSuperviewEdgesWithInsets:UIEdgeInsetsZero excludingEdge:ALEdgeBottom];
@@ -64,8 +65,17 @@
 
 #pragma mark - UICollection Delegate & DataSource Methods
 
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    CollectionController *collection = [[CollectionController alloc]
+                                        initWithCollection:[self.collections objectAtIndex:indexPath.row]];
+    
+    UINavigationController *nav = [[UINavigationController alloc]
+                                   initWithRootViewController:collection];
+    [self presentViewController:nav animated:true completion:nil];
+}
+
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 6;
+    return self.collections.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,8 +85,8 @@
         cell = [[CollectionCell alloc] initWithFrame:CGRectZero];
     }
     
+    // Reconfiguring recycled cell view
     [cell.categoryTitle setHidden:NO];
-    
     [cell.shareButton setHidden:YES];
     [cell.likesButton setHidden:YES];
     [cell.separator setHidden:YES];

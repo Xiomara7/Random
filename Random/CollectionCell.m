@@ -13,6 +13,7 @@
 
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
+    
     if (self) {
         self.layer.borderWidth = 1.0;
         self.layer.borderColor = [[UIColor lightGrayColor] CGColor];
@@ -76,6 +77,10 @@
     [self.categoryTitle autoCenterInSuperview];
     
     [super updateConstraints];
+}
+
+-(void)prepareForReuse {
+    self.selected = FALSE;
 }
 
 @end
