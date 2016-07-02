@@ -1,6 +1,6 @@
 # Random
 
-An iOS app interface to get, share and save random and free (do whatever you want) high-resolution photos from [unspash.com](http://unsplash.com/).
+An iOS app interface to get, share and save random and free (do whatever you want) high-resolution photos from [unsplash.com](http://unsplash.com/).
 
 #Setup
 
